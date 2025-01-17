@@ -15,5 +15,5 @@
             prefWidth="300.0">
     <Label fx:id="label" text="Привет, мир!" />
     <Button fx:id="button" text="Нажми меня" onAction="#buttonClick" />
-    <Button fx:id="btnService" text="Нажми меня" onAction="#btmServiceClick" />
+    <Button fx:id="btnService" text="Hello from Service" onAction="#btmServiceClick" />
 </VBox>

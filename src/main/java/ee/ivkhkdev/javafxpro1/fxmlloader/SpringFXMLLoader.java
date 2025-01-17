@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 public class SpringFXMLLoader {
     private ApplicationContext context;
 
-    @Autowired
     public SpringFXMLLoader(ApplicationContext context) {
         this.context = context;
     }
+
     public FXMLLoader load(String fxmlPath) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
         fxmlLoader.setControllerFactory(context::getBean);

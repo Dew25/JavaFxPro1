@@ -3,14 +3,11 @@ package ee.ivkhkdev.javafxpro1;
 import ee.ivkhkdev.javafxpro1.fxmlloader.SpringFXMLLoader;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -28,7 +25,7 @@ public class JavaFxPro1Application extends Application {
     public void start(Stage stage) throws Exception {
         SpringFXMLLoader springFXMLLoader = applicationContext.getBean(SpringFXMLLoader.class);
         FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/javafxpro1.fxml");
-        VBox root = fxmlLoader.load();
+        Parent root = fxmlLoader.load();
         Scene scene = new Scene(root,200, 150);
         stage.setScene(scene);
         stage.show();
