@@ -6,7 +6,6 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,7 +25,7 @@ public class JavaFxPro1Application extends Application {
         SpringFXMLLoader springFXMLLoader = applicationContext.getBean(SpringFXMLLoader.class);
         FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/javafxpro1.fxml");
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root,200, 150);
+        Scene scene = new Scene(root,300, 250);
         stage.setScene(scene);
         stage.show();
     }
