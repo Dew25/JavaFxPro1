@@ -16,21 +16,15 @@ public class UserService {
         this.appUserRepository = appUserRepository;
     }
 
-    public String addUser(String username, String password) {
+    public AppUser addUser(String username, String password) {
         AppUser appUser = new AppUser();
         appUser.setUsername(username);
         appUser.setPassword(password);
-        AppUser appUserFromDb = appUserRepository.save(appUser);
-        AppUser appUserReturnDb = appUserRepository.findById(appUserFromDb.getId()).get();
-        return String.format("id:%d username:%s password:%s%n",
-                appUserReturnDb.getId(),
-                appUserReturnDb.getUsername(),
-                appUserReturnDb.getPassword());
+        return appUserRepository.save(appUser);
     }
 
     public List<AppUser> getAllUsers() {
         return appUserRepository.findAll();
     }
-
 
 }

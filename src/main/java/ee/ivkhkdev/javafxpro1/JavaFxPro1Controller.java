@@ -1,6 +1,7 @@
 package ee.ivkhkdev.javafxpro1;
 
 import ee.ivkhkdev.javafxpro1.entity.AppUser;
+import ee.ivkhkdev.javafxpro1.repository.AppUserRepository;
 import ee.ivkhkdev.javafxpro1.service.UserService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,7 @@ public class JavaFxPro1Controller implements Initializable {
 
 
     private final UserService userService;
+    private final AppUserRepository appUserRepository;
     private ObservableList<AppUser> users = FXCollections.observableArrayList();
     @FXML
     private Label label;
@@ -31,8 +33,9 @@ public class JavaFxPro1Controller implements Initializable {
     @FXML
     private TextField tfPassword;
 
-    public JavaFxPro1Controller(UserService userService) {
+    public JavaFxPro1Controller(UserService userService, AppUserRepository appUserRepository) {
         this.userService = userService;
+        this.appUserRepository = appUserRepository;
     }
 
     @FXML
@@ -40,18 +43,33 @@ public class JavaFxPro1Controller implements Initializable {
         label.setText("Hello from JavaFxPro1Controller");
     }
     @FXML
-    private void btmServiceClick(){
-       if(!tfUserName.getText().isEmpty() || !tfPassword.getText().isEmpty()){
-           label.setText(userService.addUser(tfUserName.getText(),tfPassword.getText()));
-           List<AppUser> appUsers = userService.getAllUsers();
-           users.addAll(appUsers);
+    private void btnServiceClick(){
+       if(tfUserName.getText().isEmpty() || tfPassword.getText().isEmpty()) {
+           return;
        }
+       AppUser appUser = userService.addUser(tfUserName.getText(),tfPassword.getText());
+       label.setText(String.format("id:%d username:%s password:%s%n",
+               appUser.getId(),
+               appUser.getUsername(),
+               appUser.getPassword()));
+        reloadUsers();
     }
-
+    @FXML
+    private void btnDeleteClick(){
+        if(lvUserList.getSelectionModel().getSelectedItem() == null){return;}
+        AppUser appUser = (AppUser) lvUserList.getSelectionModel().getSelectedItem();
+        appUserRepository.delete(appUser);
+        reloadUsers();
+    }
+    private void reloadUsers(){
+        List<AppUser> appUsers = userService.getAllUsers();
+        users.clear();
+        users.addAll(appUsers);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        label.setText("Hello World");
+        label.setText("");
         // Загрузка данных из сервиса или базы данных
         List<AppUser> allUsers = userService.getAllUsers();
         users.clear();
