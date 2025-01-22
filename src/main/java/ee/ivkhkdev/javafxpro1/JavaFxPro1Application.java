@@ -1,12 +1,11 @@
 package ee.ivkhkdev.javafxpro1;
 
-import ee.ivkhkdev.javafxpro1.fxmlloader.SpringFXMLLoader;
+import ee.ivkhkdev.javafxpro1.tools.fxmlloader.SpringFXMLLoader;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

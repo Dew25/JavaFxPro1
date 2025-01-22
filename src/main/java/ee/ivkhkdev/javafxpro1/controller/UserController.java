@@ -1,4 +1,4 @@
-package ee.ivkhkdev.javafxpro1;
+package ee.ivkhkdev.javafxpro1.controller;
 
 import ee.ivkhkdev.javafxpro1.service.UserService;
 import javafx.fxml.FXML;
@@ -10,14 +10,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Component
-public class JavaFxPro1Controller implements Initializable {
+public class UserController implements Initializable {
 
 
     private UserService userService;
     @FXML
     private Label label;
 
-    public JavaFxPro1Controller(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 

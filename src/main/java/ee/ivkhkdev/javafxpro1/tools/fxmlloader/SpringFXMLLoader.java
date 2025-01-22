@@ -1,7 +1,6 @@
-package ee.ivkhkdev.javafxpro1.fxmlloader;
+package ee.ivkhkdev.javafxpro1.tools.fxmlloader;
 
 import javafx.fxml.FXMLLoader;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 

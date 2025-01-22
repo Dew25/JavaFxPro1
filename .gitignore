@@ -1,4 +1,6 @@
 HELP.md
+javafxpro1db.mv.db
+javafxpro1db.trace.db
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

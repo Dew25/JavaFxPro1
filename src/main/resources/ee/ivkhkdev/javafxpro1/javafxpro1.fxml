@@ -9,11 +9,21 @@
 <VBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             alignment="CENTER"
-            fx:controller="ee.ivkhkdev.javafxpro1.JavaFxPro1Controller"
+            fx:controller="ee.ivkhkdev.javafxpro1.controller.UserController"
             spacing="20"
             prefHeight="200"
             prefWidth="300.0">
-    <Label fx:id="label" text="Привет, мир!" />
-    <Button fx:id="button" text="Нажми меня" onAction="#buttonClick" />
-    <Button fx:id="btnService" text="Hello from Service" onAction="#btmServiceClick" />
+    <Label fx:id="lblInfo" text="Привет, мир!" />
+    <HBox fx:id="hbFirstname">
+        <Label fx:id="lblFirstname" text="Имя"></Label>
+        <TextField fx:id="tfFirstname"></TextField>
+    </HBox>
+    <HBox fx:id="hbLastname">
+        <Label fx:id="lblLastname" text="Фамилия"></Label>
+        <TextField fx:id="tfLastname"></TextField>
+    </HBox>
+    <HBox>
+        <Button fx:id="btnAddElement" text="Добавить элемент" onAction="#buttonClick" />
+        <Button fx:id="btnDeleteElement" text="Удалить элемент" onAction="#btmServiceClick" />
+    </HBox>
 </VBox>
