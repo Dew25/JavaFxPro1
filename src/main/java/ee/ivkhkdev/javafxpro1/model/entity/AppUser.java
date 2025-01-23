@@ -8,14 +8,14 @@ import jakarta.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class User {
+public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstname;
     private String lastname;
 
-    public User() {
+    public AppUser() {
     }
 
     public Long getId() {
@@ -45,7 +45,7 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        AppUser user = (AppUser) o;
         return Objects.equals(id, user.id) && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname);
     }
 

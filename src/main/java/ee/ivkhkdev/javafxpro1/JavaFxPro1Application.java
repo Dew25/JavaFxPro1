@@ -25,7 +25,7 @@ public class JavaFxPro1Application extends Application {
         SpringFXMLLoader springFXMLLoader = applicationContext.getBean(SpringFXMLLoader.class);
         FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/javafxpro1.fxml");
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root,200, 150);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
