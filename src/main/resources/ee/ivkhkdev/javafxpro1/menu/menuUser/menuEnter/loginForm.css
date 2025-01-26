@@ -1,0 +1,6 @@
+#borderLobin{
+    -fx-border-color: #cde4eb; /* Цвет рамки */
+    -fx-border-width: 3;     /* Толщина рамки */
+    -fx-border-radius: 5;    /* Скругление углов */
+    -fx-padding: 10;         /* Отступы внутри рамки */
+}

@@ -14,6 +14,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class JavaFxPro1Application extends Application {
     private static ConfigurableApplicationContext applicationContext;
+    public static Stage primaryStage;
 
     public static void main(String[] args) {
         applicationContext = SpringApplication.run(JavaFxPro1Application.class, args);
@@ -21,13 +22,15 @@ public class JavaFxPro1Application extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
+        JavaFxPro1Application.primaryStage = primaryStage;
         SpringFXMLLoader springFXMLLoader = applicationContext.getBean(SpringFXMLLoader.class);
         FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/javafxpro1.fxml");
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+        primaryStage.show();
     }
     @Override
     public void stop(){
