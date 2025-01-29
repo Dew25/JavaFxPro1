@@ -1,5 +1,6 @@
 package ee.ivkhkdev.javafxpro1;
 
+import ee.ivkhkdev.javafxpro1.controller.LoginFormController;
 import ee.ivkhkdev.javafxpro1.tools.fxmlloader.SpringFXMLLoader;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -13,6 +14,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class JavaFxPro1Application extends Application {
+    public static Stage primaryStage;
     private static ConfigurableApplicationContext applicationContext;
 
     public static void main(String[] args) {
@@ -21,13 +23,16 @@ public class JavaFxPro1Application extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
+        this.primaryStage = primaryStage;
         SpringFXMLLoader springFXMLLoader = applicationContext.getBean(SpringFXMLLoader.class);
-        FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/javafxpro1.fxml");
+        FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/login/loginForm.fxml");
         Parent root = fxmlLoader.load();
+        LoginFormController controller = fxmlLoader.getController();
+        controller.initSuperUser();
         Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
     @Override
     public void stop(){

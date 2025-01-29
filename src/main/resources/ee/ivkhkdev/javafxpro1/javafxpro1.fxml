@@ -3,32 +3,57 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="vboxRoot" alignment="CENTER" prefHeight="296.0" prefWidth="540.0" spacing="5.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ivkhkdev.javafxpro1.controller.UserController">
-    <Label fx:id="lblInfo" alignment="CENTER" prefHeight="37.0" prefWidth="517.0" text="Привет, мир!" />
+    <Label fx:id="lbInfo" alignment="CENTER" prefHeight="69.0" prefWidth="500.0" text="Зарегистрируйтесь">
+      <font>
+         <Font size="20.0" />
+      </font></Label>
     <HBox fx:id="hbFirstname" alignment="CENTER_LEFT">
-        <Label fx:id="lblFirstname" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="141.0" text="Имя:">
+        <Label fx:id="lbFirstname" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="141.0" text="Имя:">
          <padding>
             <Insets right="10.0" />
          </padding></Label>
-        <TextField fx:id="tfFirstname" prefHeight="25.0" prefWidth="351.0" />
+        <TextField fx:id="tfFirstname" prefHeight="25.0" prefWidth="308.0" />
     </HBox>
     <HBox fx:id="hbLastname" alignment="CENTER_LEFT">
-        <Label fx:id="lblLastname" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="141.0" text="Фамилия:">
+        <Label fx:id="lbLastname" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="141.0" text="Фамилия:">
          <padding>
             <Insets right="10.0" />
          </padding></Label>
-        <TextField fx:id="tfLastname" prefHeight="25.0" prefWidth="349.0" />
+        <TextField fx:id="tfLastname" prefHeight="25.0" prefWidth="308.0" />
     </HBox>
+   <HBox fx:id="hbLogin" alignment="CENTER_LEFT">
+      <children>
+         <Label fx:id="lbLogin" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="141.0" text="Логин">
+            <padding>
+               <Insets right="10.0" />
+            </padding>
+         </Label>
+         <TextField fx:id="tfLogin" prefHeight="25.0" prefWidth="222.0" />
+      </children>
+   </HBox>
+   <HBox fx:id="hbPassword" alignment="CENTER_LEFT">
+      <children>
+         <Label fx:id="lbPassword" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="141.0" text="Пароль">
+            <padding>
+               <Insets right="10.0" />
+            </padding>
+         </Label>
+         <PasswordField fx:id="pfPassword" prefHeight="25.0" prefWidth="224.0" />
+      </children>
+   </HBox>
     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="511.0">
-        <Button fx:id="btnAddElement" onAction="#addElement" text="Добавить элемент" />
-        <Button fx:id="btnDeleteElement" onAction="#deleteElement" text="Удалить элемент" />
+        <Button fx:id="btnAddElement" onAction="#add" text="Добавить элемент" />
+      <VBox.margin>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </VBox.margin>
     </HBox>
-   <ListView fx:id="lvListUsers" prefHeight="200.0" prefWidth="200.0" />
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>

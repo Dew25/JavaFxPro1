@@ -14,8 +14,26 @@ public class AppUser {
     private Long id;
     private String firstname;
     private String lastname;
+    private String login;
+    private String password;
 
     public AppUser() {
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
@@ -56,10 +74,12 @@ public class AppUser {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "AppUser{" +
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

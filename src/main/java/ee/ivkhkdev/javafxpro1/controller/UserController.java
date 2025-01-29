@@ -1,17 +1,21 @@
 package ee.ivkhkdev.javafxpro1.controller;
 
+import ee.ivkhkdev.javafxpro1.JavaFxPro1Application;
 import ee.ivkhkdev.javafxpro1.model.entity.AppUser;
 import ee.ivkhkdev.javafxpro1.service.UserService;
+import ee.ivkhkdev.javafxpro1.tools.fxmlloader.SpringFXMLLoader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -19,52 +23,62 @@ import java.util.ResourceBundle;
 @Component
 public class UserController implements Initializable {
 
+    private final SpringFXMLLoader springFXMLLoader;
     private UserService userService;
-    private ObservableList<AppUser> users = FXCollections.observableArrayList();
+
     @FXML
-    private Label lblInfo;
+    private Label lbInfo;
     @FXML
     private TextField tfFirstname;
     @FXML
     private TextField tfLastname;
     @FXML
-    private ListView<AppUser> lvListUsers;
+    private TextField tfLogin;
+    @FXML
+    private PasswordField pfPassword;
 
-
-    public UserController(UserService userService) {
+    public UserController(UserService userService, SpringFXMLLoader springFXMLLoader) {
         this.userService = userService;
+        this.springFXMLLoader=springFXMLLoader;
     }
 
     @FXML
-    private void addElement(){
-        AppUser savedUser = userService.add(tfFirstname.getText(), tfLastname.getText());
-        lblInfo.setText(String.format("Пользователь, %d %s %s, сохранен",
+    private void add() throws IOException {
+        AppUser savedUser = userService.save(
+                tfFirstname.getText(),
+                tfLastname.getText(),
+                tfLogin.getText(),
+                pfPassword.getText()
+        );
+        lbInfo.setText(String.format("Пользователь, %d %s %s, сохранен",
                 savedUser.getId(),
                 savedUser.getFirstname(),
                 savedUser.getLastname()));
-        reloadUsers();
-    }
-    @FXML
-    private void deleteElement(){
-        lblInfo.setText("");
+        loadLoginForm();
     }
 
-    private void reloadUsers(){
-        List<AppUser> listUsers = userService.getAllUsers();
-        users.clear();
-        users.addAll(listUsers);
+    private void loadLoginForm() throws IOException {
+        FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/login/loginForm.fxml");
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        getPrimaryStage().setScene(scene);
+        getPrimaryStage().show();
     }
+
+    private static Stage getPrimaryStage() {
+        return JavaFxPro1Application.primaryStage;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lblInfo.setText("Hello World");
-        reloadUsers();
-        lvListUsers.setItems(users);
-        lvListUsers.setCellFactory(lv->new ListCell<AppUser>() {
-            @Override
-            protected void updateItem(AppUser item, boolean empty) {
-                super.updateItem(item, empty);
-                setText(empty ? "" : item.getId() +". "+item.getFirstname() + " " + item.getLastname());
-            }
-        });
+//        reloadUsers();
+//        lvListUsers.setItems(users);
+//        lvListUsers.setCellFactory(lv->new ListCell<AppUser>() {
+//            @Override
+//            protected void updateItem(AppUser item, boolean empty) {
+//                super.updateItem(item, empty);
+//                setText(empty ? "" : item.getId() +". "+item.getFirstname() + " " + item.getLastname());
+//            }
+//        });
     }
 }

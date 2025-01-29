@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.PasswordField?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="264.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ivkhkdev.javafxpro1.controller.LoginFormController">
+   <children>
+      <Label alignment="CENTER" prefHeight="45.0" prefWidth="423.0" text="Введите логин и пароль">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbInfo" alignment="CENTER" prefHeight="32.0" prefWidth="423.0" textFill="#339a41" />
+      <HBox prefHeight="27.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="120.0" text="Логин">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfLogin" prefHeight="25.0" prefWidth="216.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="118.0" prefHeight="27.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="120.0" text="Логин">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <PasswordField fx:id="pfPassword" prefHeight="25.0" prefWidth="216.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="145.0" prefHeight="44.0" prefWidth="423.0">
+         <children>
+            <Button fx:id="btEnter" onAction="#login" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="Войти"/>
+         </children>
+      </HBox>
+      <Button fx:id="btnRegistration" onAction="#register" mnemonicParsing="false"  prefHeight="11.0" prefWidth="148.0" text="Зарегистироваться" />
+   </children>
+</VBox>
