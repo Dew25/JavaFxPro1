@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vboxRoot" alignment="CENTER" prefHeight="296.0" prefWidth="540.0" spacing="5.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ivkhkdev.javafxpro1.controller.UserController">
+<VBox fx:id="vboxRoot" alignment="CENTER" prefHeight="296.0" prefWidth="540.0" spacing="5.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ivkhkdev.javafxpro1.controller.RegistrationController">
     <Label fx:id="lbInfo" alignment="CENTER" prefHeight="69.0" prefWidth="500.0" text="Зарегистрируйтесь">
       <font>
          <Font size="20.0" />

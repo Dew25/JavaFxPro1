@@ -4,8 +4,6 @@ import ee.ivkhkdev.javafxpro1.JavaFxPro1Application;
 import ee.ivkhkdev.javafxpro1.model.entity.AppUser;
 import ee.ivkhkdev.javafxpro1.service.UserService;
 import ee.ivkhkdev.javafxpro1.tools.fxmlloader.SpringFXMLLoader;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,14 +15,13 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
-public class UserController implements Initializable {
+public class RegistrationController implements Initializable {
 
     private final SpringFXMLLoader springFXMLLoader;
-    private UserService userService;
+    private final UserService userService;
 
     @FXML
     private Label lbInfo;
@@ -37,7 +34,7 @@ public class UserController implements Initializable {
     @FXML
     private PasswordField pfPassword;
 
-    public UserController(UserService userService, SpringFXMLLoader springFXMLLoader) {
+    public RegistrationController(UserService userService, SpringFXMLLoader springFXMLLoader) {
         this.userService = userService;
         this.springFXMLLoader=springFXMLLoader;
     }
@@ -71,14 +68,6 @@ public class UserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        reloadUsers();
-//        lvListUsers.setItems(users);
-//        lvListUsers.setCellFactory(lv->new ListCell<AppUser>() {
-//            @Override
-//            protected void updateItem(AppUser item, boolean empty) {
-//                super.updateItem(item, empty);
-//                setText(empty ? "" : item.getId() +". "+item.getFirstname() + " " + item.getLastname());
-//            }
-//        });
+
     }
 }

@@ -49,7 +49,7 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void register() throws IOException {
-        FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/javafxpro1.fxml");
+        FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/user/registration.fxml");
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         getPrimaryStage().setScene(scene);

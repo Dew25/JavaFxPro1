@@ -24,7 +24,7 @@ public class JavaFxPro1Application extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.primaryStage = primaryStage;
+        JavaFxPro1Application.primaryStage = primaryStage;
         SpringFXMLLoader springFXMLLoader = applicationContext.getBean(SpringFXMLLoader.class);
         FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/login/loginForm.fxml");
         Parent root = fxmlLoader.load();
@@ -32,6 +32,7 @@ public class JavaFxPro1Application extends Application {
         controller.initSuperUser();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
         primaryStage.show();
     }
     @Override
