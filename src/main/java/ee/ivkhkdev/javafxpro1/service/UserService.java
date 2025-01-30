@@ -41,7 +41,7 @@ public class UserService {
             AppUser user = new AppUser();
             user.setFirstname("Ivan");
             user.setLastname("Ivanov");
-            user.setLogin("ivanov");
+            user.setLogin("admin");
             user.setPassword("12345");
             userRepository.save(user);
         }
