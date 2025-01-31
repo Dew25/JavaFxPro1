@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -26,6 +27,7 @@ public class LoginFormController implements Initializable {
     @FXML private Label lbInfo;
     @FXML private TextField tfLogin;
     @FXML private PasswordField pfPassword;
+    @FXML private Button btnEnter;
 
     public LoginFormController(SpringFXMLLoader springFXMLLoader, UserService userService) {
         this.springFXMLLoader = springFXMLLoader;
@@ -65,7 +67,13 @@ public class LoginFormController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        btnEnter.setOnAction(event -> {
+            try {
+                this.login();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
     }
 

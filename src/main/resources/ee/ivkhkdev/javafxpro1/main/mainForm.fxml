@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ee.ivkhkdev.javafxpro1.controller.MainFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<VBox fx:id="vbMainRoot" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ivkhkdev.javafxpro1.controller.MainFormController">
+   <children>
+      <TableView fx:id="tvBooks" prefHeight="299.0" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="tcId" prefWidth="75.0" text="Id" />
+            <TableColumn fx:id="tcTitle" prefWidth="400.3333282470703" text="Название" />
+            <TableColumn fx:id="tcPub" prefWidth="123.66667175292969" text="Год публикации" />
+        </columns>
+      </TableView>
+   </children>
 </VBox>
