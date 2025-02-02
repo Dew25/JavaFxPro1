@@ -57,7 +57,7 @@ public class UserController implements Initializable {
         loadLoginForm();
     }
 
-    private void loadLoginForm() throws IOException {
+    public void loadLoginForm() throws IOException {
         FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/login/loginForm.fxml");
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);

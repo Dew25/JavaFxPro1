@@ -1,6 +1,7 @@
 package ee.ivkhkdev.javafxpro1.controller;
 
 import ee.ivkhkdev.javafxpro1.JavaFxPro1Application;
+import ee.ivkhkdev.javafxpro1.model.entity.AppUser;
 import ee.ivkhkdev.javafxpro1.service.UserService;
 import ee.ivkhkdev.javafxpro1.tools.fxmlloader.SpringFXMLLoader;
 import javafx.fxml.FXML;
@@ -61,7 +62,7 @@ public class LoginFormController implements Initializable {
     private Stage getPrimaryStage(){
         return JavaFxPro1Application.primaryStage;
     }
-
+    private AppUser getCurrentUser(){ return JavaFxPro1Application.currentUser;}
     public void initSuperUser() {
         userService.setSuperUser();
     }

@@ -1,11 +1,11 @@
 package ee.ivkhkdev.javafxpro1.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class AppUser {
@@ -16,7 +16,8 @@ public class AppUser {
     private String lastname;
     private String login;
     private String password;
-
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> roles = new HashSet<>();
     public AppUser() {
     }
 
@@ -60,16 +61,25 @@ public class AppUser {
         this.lastname = lastname;
     }
 
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AppUser user = (AppUser) o;
-        return Objects.equals(id, user.id) && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname);
+        AppUser appUser = (AppUser) o;
+        return Objects.equals(id, appUser.id) && Objects.equals(firstname, appUser.firstname) && Objects.equals(lastname, appUser.lastname) && Objects.equals(login, appUser.login) && Objects.equals(password, appUser.password) && Objects.equals(roles, appUser.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname);
+        return Objects.hash(id, firstname, lastname, login, password, roles);
     }
 
     @Override
@@ -80,6 +90,7 @@ public class AppUser {
                 ", lastname='" + lastname + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
+                ", roles=" + Arrays.toString(roles.toArray()) +
                 '}';
     }
 }

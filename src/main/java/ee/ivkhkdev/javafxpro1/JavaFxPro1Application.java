@@ -1,6 +1,7 @@
 package ee.ivkhkdev.javafxpro1;
 
 import ee.ivkhkdev.javafxpro1.controller.LoginFormController;
+import ee.ivkhkdev.javafxpro1.model.entity.AppUser;
 import ee.ivkhkdev.javafxpro1.tools.fxmlloader.SpringFXMLLoader;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -15,7 +16,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class JavaFxPro1Application extends Application {
     public static Stage primaryStage;
+    public static AppUser currentUser;
+    public enum ROLE {USER, MANAGER, ADMINISTRATOR}
     private static ConfigurableApplicationContext applicationContext;
+
 
     public static void main(String[] args) {
         applicationContext = SpringApplication.run(JavaFxPro1Application.class, args);
@@ -24,7 +28,7 @@ public class JavaFxPro1Application extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.primaryStage = primaryStage;
+        JavaFxPro1Application.primaryStage = primaryStage;
         SpringFXMLLoader springFXMLLoader = applicationContext.getBean(SpringFXMLLoader.class);
         FXMLLoader fxmlLoader = springFXMLLoader.load("/ee/ivkhkdev/javafxpro1/login/loginForm.fxml");
         Parent root = fxmlLoader.load();

@@ -1,5 +1,6 @@
 package ee.ivkhkdev.javafxpro1.service;
 
+import ee.ivkhkdev.javafxpro1.JavaFxPro1Application;
 import ee.ivkhkdev.javafxpro1.model.entity.AppUser;
 import ee.ivkhkdev.javafxpro1.model.repository.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
@@ -22,8 +23,8 @@ public class UserService {
         user.setFirstname(firstname);
         user.setLastname(lastname);
         user.setLogin(login);
-
         user.setPassword(hashPassword(password));
+        user.getRoles().add(JavaFxPro1Application.ROLE.USER.toString());
         return userRepository.save(user);
     }
 
@@ -33,7 +34,12 @@ public class UserService {
 
     public boolean authenticate(String login, String password) {
         AppUser user = userRepository.findByLogin(login);
-        return BCrypt.checkpw(password, user.getPassword());
+        if(BCrypt.checkpw(password, user.getPassword())){
+            JavaFxPro1Application.currentUser = user;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void setSuperUser() {
@@ -43,6 +49,9 @@ public class UserService {
             user.setLastname("Ivanov");
             user.setLogin("admin");
             user.setPassword(hashPassword("12345"));
+            user.getRoles().add(JavaFxPro1Application.ROLE.USER.toString());
+            user.getRoles().add(JavaFxPro1Application.ROLE.MANAGER.toString());
+            user.getRoles().add(JavaFxPro1Application.ROLE.ADMINISTRATOR.toString());
             userRepository.save(user);
         }
     }

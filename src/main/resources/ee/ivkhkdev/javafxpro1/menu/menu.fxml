@@ -6,32 +6,34 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vbMenuRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ivkhkdev.javafxpro1.controller.MenuController">
+<VBox fx:id="vbMenuRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ee.ivkhkdev.javafxpro1.controller.MenuController">
    <children>
-      <MenuBar>
+      <MenuBar fx:id="menuBar">
         <menus>
-          <Menu mnemonicParsing="false" text="Книги">
+          <Menu fx:id="mBooks" mnemonicParsing="false" text="Книги" visible="false">
             <items>
               <MenuItem fx:id="miAdd" mnemonicParsing="false" onAction="#addBookClick" text="Добавить" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Пользовалели">
+          <Menu fx:id="mUsers" mnemonicParsing="false" text="Пользовалели" visible="false">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Вход" />
+                  <MenuItem fx:id="miLogout" mnemonicParsing="false" onAction="#logout" text="Выход" />
+                  <MenuItem mnemonicParsing="false" text="Профиль" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Менеджеры">
+            <Menu fx:id="mManagers" mnemonicParsing="false" text="Менеджеры" visible="false">
                <items>
                   <MenuItem mnemonicParsing="false" text="About" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Авминистраторы">
+            <Menu fx:id="mAdministrators" mnemonicParsing="false" text="Авминистраторы" visible="false">
                <items>
                   <MenuItem mnemonicParsing="false" text="About" />
                </items>
             </Menu>
         </menus>
       </MenuBar>
-      <Label fx:id="lbInfo" alignment="CENTER" prefHeight="17.0" prefWidth="603.0" text="Здесь будет информация о результатах" textFill="#298312" />
+      <Label fx:id="lbInfo" alignment="CENTER" prefHeight="29.0" prefWidth="603.0" text="Здесь будет информация о результатах" textFill="#298312" />
    </children>
 </VBox>
